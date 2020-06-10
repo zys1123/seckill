@@ -1,0 +1,6 @@
+server:
+  port: 8088
+#datasource
+#url=jdbc:mysql://192.168.117.131:3306/db_second_kill?useUnicode=true&amp;characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull
+#datasource.username=root
+#datasource.password=root

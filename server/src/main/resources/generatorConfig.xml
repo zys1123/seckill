@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <!--  <properties resource="mybatis.properties" />
+         -->
+    <classPathEntry location="F:\repository\mysql\mysql-connector-java\8.0.20\mysql-connector-java-8.0.20.jar" />
+    <context id="msqlTables" targetRuntime="MyBatis3">
+
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin"></plugin>
+
+        <!-- 项目中添加LombokPlugin类，用于实现添加lombok注释，不生成set,get方法，如果需要生成就把以下plugin注释即可，这也是与这个逆向工程的特点 -->
+        <plugin type="org.mybatis.generator.plugins.LombokPlugin">
+            <property name="hasLombok" value="true" />
+        </plugin>
+        <!--<plugin type="org.mybatis.generator.plugins.LombokPlugin">-->
+            <!--<property name="generatorSerialVersionUID" value="true" />-->
+            <!--<property name="ignoreFields" value="id,enabled,createTime,createBy,lastUpdateBy,lastUpdateTime" />-->
+        <!--</plugin>-->
+        <!--去掉生成的注释-->
+        <commentGenerator>
+            <property name="suppressAllComments" value="true"></property>
+        </commentGenerator>
+        <jdbcConnection connectionURL="jdbc:mysql://192.168.117.131:3306/db_second_kill?serverTimezone=GMT%2B8"
+                        driverClass="com.mysql.cj.jdbc.Driver" password="root" userId="root" >
+
+            <property name="nullCatalogMeansCurrent" value="true"/>
+        </jdbcConnection>
+        <!-- 默认false，把JDBC DECIMAL 和 NUMERIC 类型解析为 Integer，为 true时把JDBC DECIMAL和NUMERIC类型解析为java.math.BigDecimal -->
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+        <!--targetPackage目标包，生成实体类的位置-->
+        <javaModelGenerator targetPackage="com.zys.seckill.model.entity" targetProject="I:\work\seckill\model\src\main\java">
+            <!--enableSubPackages,是否让schema作为包的后缀-->
+            <property name="enableSubPackages" value="false"/>
+            <!--从数据库返回的值被清除前后空格-->
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+        <!--targetProject:mapper映射文件生成的位置-->
+        <sqlMapGenerator targetPackage="mapper" targetProject="I:\work\seckill\server\src\main\resources">
+            <property name="enableSubPackages" value="false"></property>
+
+        </sqlMapGenerator>
+        <!--targetPackage:mapper接口生成的位置-->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.zys.seckill.model.dao" targetProject="I:\work\seckill\model\src\main\java">
+            <property name="enableSubPackages" value="false"/>
+        </javaClientGenerator>
+        <!--指定数据库表，要和数据库中进行对应，否则将会出错-->
+        <table tableName="item"  domainObjectName="item"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false"></table>
+        <table tableName="item_kill"  domainObjectName="itemKill"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false"></table>
+        <table tableName="item_kill"  domainObjectName="itemKill"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false"></table>
+        <table tableName="item_kill_success"  domainObjectName="itemKillSuccess"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false"></table>
+        <table tableName="random_code"  domainObjectName="randomCode"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false"></table>
+        <table tableName="user"  domainObjectName="user"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false"></table>
+
+    </context>
+</generatorConfiguration>
